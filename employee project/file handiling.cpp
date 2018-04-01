@@ -50,11 +50,6 @@ void employee::putdata()
 }
 int employee::storeemployee()
 {
-//    if(id=0)
-//    {
-//      cout<<"no data has been entered";
-//      return(0);
-//}
     ofstream fout;
     getdata();
     fout.open("employee.dat",ios::app|ios::binary);
