@@ -141,13 +141,59 @@ void employee::update(char *t)
 }
 int main()
 {
+
     employee e1;
-    //e1.getdata();
-    //e1.putdata();
-    //e1.storeemployee();
+    int choice;
+    while(1)
+    {
+//    e1.getdata();
+//    e1.putdata();
+//    e1.storeemployee();
+//    e1.seelist();
+//   e1.search("SHIVAM");
+//  e1.delet("NULL");
+//  e1.update("SHIVAM");
+  cout<<"*******HEY WELCOME TO EMPLOYEE DATA MANAGMENT SYSTEM*******\n\n\n";
+  cout<<"ENTER 1 TO ADD NEW PROFILE.\n";
+  cout<<"ENTER 2 TO SEE ALL THE PROFILE.\n";
+  cout<<"ENTER 3 TO SEARCH A PROFILE.\n";
+  cout<<"ENTER 4 TO DELETE A PROFILE.\n";
+  cout<<"ENTER 5 TO UPDATE A PROFILE.\n";
+  cout<<"ENTER 0 TO EXIT.\n";
+   cout<<"\n ENTER YOUR CHOICE:";
+   cin>>choice;
+   cout<<"\n";
+   switch(choice)
+   {
+   case 1:
+    e1.storeemployee();
+    cout<<"\n THE PROFILE IS ADDED SUCCESSFULLY\n";
+    break;
+   case 2:
     e1.seelist();
-   //e1.search("SHIVAM");
-  //e1.delet("NULL");
-  //e1.update("SHIVAM");
+    break;
+//   case 3:
+//    char a[10];
+//    gets(a);
+//    e1.search(&a);
+//    break;
+//   case 4:
+//    char a[10];
+//    gets(a);
+//    e1.delet(&a);
+//    break;
+//   case 5:
+//    char a[10];
+//    gets(a);
+//    e1.update(&a);
+//    break;
+   case 0:
+    return 0;
+    break;
+   default:
+    cout<<"PLEASE ENTER A VALLID OPTION";
+    break;
+   }
+    }
     return(0);
 }
