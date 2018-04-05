@@ -62,7 +62,7 @@ void employee::seelist()
     ifstream fin;
     fin.open("employee.dat",ios::in|ios::binary);
     if(!fin)
-    cout<<"file not found!";
+    cout<<"\nfile not found!\n";
     else
     {
     fin.read((char *)this,sizeof(*this));
@@ -80,13 +80,13 @@ void employee::search(char *t)
     ifstream fin;
     fin.open("employee.dat",ios::in|ios::binary);
     if(!fin)
-    cout<<"\nfile not found";
+    cout<<"\nfile not found\n";
     else
     {
     fin.read((char *)this,sizeof(*this));
     while(!fin.eof())
     {
-    if(!strcmp(t,name))
+    if(!strcmp(t,id))
     {
     putdata();
     flag=1;
@@ -94,7 +94,7 @@ void employee::search(char *t)
     fin.read((char *)this,sizeof(*this));
     }
     if(flag==0)
-    cout<<"\nnot found!";
+    cout<<"\nnot found!\n";
     fin.close();
     }
 }
@@ -104,14 +104,14 @@ void employee::delet(char *t)
     ofstream fout;
     fin.open("employee.dat",ios::in|ios::binary);
     if(!fin)
-        cout<<"\nfile not found";
+        cout<<"\nfile not found\n";
     else
     {
     fout.open("tempfile.dat",ios::out|ios::binary);
     fin.read((char *)this,sizeof(*this));
     while(!fin.eof())
     {
-    if(strcmp(name,t))
+    if(strcmp(id,t))
     fout.write((char*)this,sizeof(*this));
     fin.read((char *)this,sizeof(*this));
     }
@@ -129,7 +129,7 @@ void employee::update(char *t)
     file.read((char*)this,sizeof(*this));
     while(!file.eof())
     {
-    if(!strcmp(t,name))
+    if(!strcmp(t,id))
     {
     getdata();
     file.seekp(file.tellp()-sizeof(*this));
@@ -144,16 +144,10 @@ int main()
 
     employee e1;
     int choice;
-    while(1)
-    {
-//    e1.getdata();
-//    e1.putdata();
-//    e1.storeemployee();
-//    e1.seelist();
-//   e1.search("SHIVAM");
-//  e1.delet("NULL");
-//  e1.update("SHIVAM");
+    char a[10];
   cout<<"*******HEY WELCOME TO EMPLOYEE DATA MANAGMENT SYSTEM*******\n\n\n";
+  while(1)
+  {
   cout<<"ENTER 1 TO ADD NEW PROFILE.\n";
   cout<<"ENTER 2 TO SEE ALL THE PROFILE.\n";
   cout<<"ENTER 3 TO SEARCH A PROFILE.\n";
@@ -172,21 +166,24 @@ int main()
    case 2:
     e1.seelist();
     break;
-//   case 3:
-//    char a[10];
-//    gets(a);
-//    e1.search(&a);
-//    break;
-//   case 4:
-//    char a[10];
-//    gets(a);
-//    e1.delet(&a);
-//    break;
-//   case 5:
-//    char a[10];
-//    gets(a);
-//    e1.update(&a);
-//    break;
+   case 3:
+    cout<<"\n ENTER THE ID OF EMPLOYEE:";
+    cin.ignore();
+    gets(a);
+    e1.search(a);
+    break;
+   case 4:
+    cout<<"\n ENTER THE ID OF EMPLOYEE:";
+    cin.ignore();
+    gets(a);
+    e1.delet(a);
+    break;
+   case 5:
+    cout<<"\n ENTER THE ID OF EMPLOYEE:";
+    cin.ignore();
+    gets(a);
+    e1.update(a);
+    break;
    case 0:
     return 0;
     break;
